@@ -3,12 +3,12 @@ from src.graphs import graphs
 import numpy as np
 
 def main():
-    # Dominio continuo y discretización
+    # Discretización
     t_cont = np.linspace(-1, 5, 1000)
     Ts = 0.05
     t_disc = np.arange(-1, 5 + Ts, Ts)
     
-    # Diccionario con señales y títulos
+    # Señales
     signals = {
         "x₁(t) = sin(2π·f·t) (f=2Hz)": sinusoidal,
         "x₂(t) = e^(–2t) · u(t)*": exponential_step,
@@ -16,7 +16,7 @@ def main():
         "x₄(t) = sq(t, f) (f=2Hz)": square
     }
     
-    # Graficar cada señal
+    # Graficas
     for title, func in signals.items():
         x_cont = func(t_cont)
         x_disc = func(t_disc)
