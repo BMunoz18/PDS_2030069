@@ -1,32 +1,34 @@
 import matplotlib.pyplot as plt
 
-def plot_signal_subplot(t_cont, t_disc, x_cont, x_disc, title):
+def signal_graphs(t_continue, t_discrete, x_continue, x_discrete, title):
     plt.figure(figsize=(8, 8))
     plt.suptitle(title)
 
-    #continua
+    # Continue signal
     plt.subplot(3, 1, 1)
-    plt.plot(t_cont, x_cont, 'r')
-    plt.title('Continua')
-    plt.ylabel('Amplitud')
-    plt.grid(True)
+    plt.plot(t_continue, x_continue, 'r')
+    plt.title('Continue signal')
+    plt.xlabel('Time')
+    plt.ylabel('Amplitude')
+    plt.grid()
 
-    #discreta
+    # Discrete signal
     plt.subplot(3, 1, 2)
-    plt.stem(t_disc, x_disc, linefmt='b-', markerfmt='go', basefmt='k-')
-    plt.title('Discreta')
-    plt.ylabel('Amplitud')
-    plt.grid(True)
+    plt.stem(t_discrete, x_discrete, basefmt='k-')
+    plt.title('Discrete signal')
+    plt.xlabel('Time')
+    plt.ylabel('Amplitude')
+    plt.grid()
 
-    #sobreponer
+    # Overlaid signals
     plt.subplot(3, 1, 3)
-    plt.plot(t_cont, x_cont, 'r', label='Continua')
-    plt.stem(t_disc, x_disc, linefmt='b-', markerfmt='go', basefmt='k-', label='Discreta')
-    plt.title('Ambas')
-    plt.xlabel('Tiempo')
-    plt.ylabel('Amplitud')
+    plt.plot(t_continue, x_continue, 'r', label='Continue')
+    plt.stem(t_discrete, x_discrete, basefmt='k-', label='Discrete')
+    plt.title('Overlapping signals')
+    plt.xlabel('Time')
+    plt.ylabel('Amplitude')
     plt.legend()
-    plt.grid(True)
+    plt.grid()
 
     plt.tight_layout(rect=[0, 0, 1, 0.95])
     plt.show()
