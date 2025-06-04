@@ -2,7 +2,7 @@ import numpy as np
 from scipy import signal
 from src.utils.grapher import signal_graphs
 
-def signals():
+def signals1():
     
     f = 2 # Frec
     t = np.linspace(-1, 5, 1000)
