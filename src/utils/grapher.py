@@ -32,3 +32,16 @@ def signal_graphs(t_continue, t_discrete, x_continue, x_discrete, title):
 
     plt.tight_layout(rect=[0, 0, 1, 0.95])
     plt.show()
+
+
+def dac_graphs(d_in, a_out, voltage, levels, bits):
+    plt.figure(figsize=(8, 6))
+    plt.suptitle(f'DAC {bits} bits')
+    
+    plt.step(d_in, a_out, where='post', color='r')
+    plt.xlabel('Digital input level')
+    plt.ylabel('Analog voltage')
+    plt.grid()
+    plt.ylim(-0.1, voltage + 0.1)
+    plt.xlim(-1, levels)
+    plt.show()
