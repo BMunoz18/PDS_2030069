@@ -1,5 +1,31 @@
 import matplotlib.pyplot as plt
 
+
+def continuous_plotter(
+        ind_var, dep_var,
+        title: str = "", graph_label: str = "",
+        x_label: str = "", y_label: str = ""):
+    plt.plot(ind_var, dep_var, label=graph_label)
+    plt.title(title)
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    plt.legend(loc='upper right')
+    plt.grid(True)
+    plt.show()
+
+
+def discrete_plotter(
+        ind_var, dep_var,
+        title: str = "", graph_label: str = "",
+        x_label: str = "", y_label: str = ""):
+    plt.stem(ind_var, dep_var, label=graph_label)
+    plt.title(title)
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    plt.legend(loc='upper right')
+    plt.grid(True)
+    plt.show()
+
 def signal_graphs(t_continue, t_discrete, x_continue, x_discrete, title):
     plt.figure(figsize=(8, 8))
     plt.suptitle(title)
@@ -45,3 +71,4 @@ def dac_graphs(d_in, a_out, voltage, levels, bits):
     plt.ylim(-0.1, voltage + 0.1)
     plt.xlim(-1, levels)
     plt.show()
+
